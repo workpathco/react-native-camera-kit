@@ -39,6 +39,7 @@ export type Props = {
   frameColor: any,
   torchOnImage: any,
   torchOffImage: any,
+  torchMode: boolean;
   onReadCode: (any) => void;
   onBottomButtonPressed: (any) => void;
 }
@@ -88,7 +89,7 @@ export default class CameraScreen extends Component<Props, State> {
     this.state = {
       captureImages: [],
       flashData: this.flashArray[this.currentFlashArrayPosition],
-      torchMode: false,
+      torchMode: props.torchMode || false,
       ratios: [],
       ratioArrayPosition: -1,
       imageCaptured: false,
