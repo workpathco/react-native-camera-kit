@@ -179,7 +179,7 @@ export default class CameraScreen extends Component<Props, State> {
             style={{ flex: 1, justifyContent: 'flex-end' }}
             cameraType={this.state.cameraType}
             flashMode={this.state.flashData.mode}
-            torchMode={'on'}
+            torchMode={this.state.torchMode ? 'on' : 'off'}
             focusMode={this.props.focusMode}
             zoomMode={this.props.zoomMode}
             ratioOverlay={this.state.ratios[this.state.ratioArrayPosition]}
