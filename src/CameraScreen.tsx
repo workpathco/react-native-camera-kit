@@ -106,7 +106,6 @@ export default class CameraScreen extends Component<Props, State> {
     this.setState({
       ratios: ratios || [],
       ratioArrayPosition: ratios.length > 0 ? 0 : -1,
-      torchMode: this.props.torchMode
     });
   }
 
@@ -180,7 +179,7 @@ export default class CameraScreen extends Component<Props, State> {
             style={{ flex: 1, justifyContent: 'flex-end' }}
             cameraType={this.state.cameraType}
             flashMode={this.state.flashData.mode}
-            torchMode={this.state.torchMode ? 'on' : 'off'}
+            torchMode={ this.props.torchMode ? 'on' : 'off'}
             focusMode={this.props.focusMode}
             zoomMode={this.props.zoomMode}
             ratioOverlay={this.state.ratios[this.state.ratioArrayPosition]}
