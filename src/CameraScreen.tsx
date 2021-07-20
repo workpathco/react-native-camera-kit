@@ -89,7 +89,7 @@ export default class CameraScreen extends Component<Props, State> {
     this.state = {
       captureImages: [],
       flashData: this.flashArray[this.currentFlashArrayPosition],
-      torchMode: props.torchMode || false,
+      torchMode: false,
       ratios: [],
       ratioArrayPosition: -1,
       imageCaptured: false,
@@ -106,6 +106,7 @@ export default class CameraScreen extends Component<Props, State> {
     this.setState({
       ratios: ratios || [],
       ratioArrayPosition: ratios.length > 0 ? 0 : -1,
+      torchMode: this.props.torchMode
     });
   }
 
