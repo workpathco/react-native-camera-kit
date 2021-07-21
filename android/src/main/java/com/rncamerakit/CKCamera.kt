@@ -287,18 +287,17 @@ class CKCamera(context: ThemedReactContext) : FrameLayout(context), LifecycleObs
         }
 
         // Create the output file option to store the captured image in MediaStore
-        val outputOptions = when (outputPath) {
-            null -> ImageCapture.OutputFileOptions
-                    .Builder(
-                            context.contentResolver,
-                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                            contentValues
-                    )
+        val outputOptions = outputPath?.run {
+            ImageCapture.OutputFileOptions
+                    .Builder(File(this))
                     .build()
-            else -> ImageCapture.OutputFileOptions
-                    .Builder(File(outputPath))
-                    .build()
-        }
+        } ?: ImageCapture.OutputFileOptions
+                .Builder(
+                        context.contentResolver,
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        contentValues
+                )
+                .build()
 
         flashViewFinder()
 
